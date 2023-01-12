@@ -33,7 +33,7 @@ app.post("/add", async (req, res) => {
       "INSERT INTO escola.professor(id_titulo, tx_nome, tx_sexo, tx_estado_civil, dt_nascimento, tx_telefone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [id_titulo, tx_nome, tx_sexo, tx_estado_civil, dt_nascimento, tx_telefone]
     );
-    return res.status(200).send(newTeacher.rows);
+    return res.status(200).send("DEU CERTO! Professor(a) cadastrado(a) com sucesso. :D");
   } catch (err) {
     console.log(err);
     return res.status(400).send(err);
@@ -81,7 +81,7 @@ app.delete("/delete/:id_professor", async (req, res) => {
       "DELETE FROM escola.professor WHERE id_professor = ($1) RETURNING *",
       [id_professor]
     );
-    return res.status(200).send(deleteTeacher.rows);
+    return res.status(200).send("Professor(a) deletado(a) com sucesso! ;)");
   } catch (err) {
     console.log(err);
     return res.status(400).send(err);
